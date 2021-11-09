@@ -4,7 +4,9 @@ roverx = 100;
 rovery = 100;
 rover_width = 100;
 rover_height = 100;
-background_image = "mars.jpg";
+nasa_images = ["mars.jpg", "Nasa_image_1.jpg", "Nasa_image_2.jpg", "Nasa_image_3.jpg", "Nasa_image_4.jpg", "Nasa_image_5.jpg"];
+random_number = Math.floor(Math.random()*6);
+background_image = nasa_images[random_number];
 rover_image = "rover.png"
 
 function add() {
@@ -29,19 +31,51 @@ function my_keydown(e) {
     key_pressed = e.keyCode;
     console.log(key_pressed);
     if (key_pressed == '37') {
-        //left();
+        left();
         console.log("Left Key Is Pressed");
     }
     if (key_pressed == '39') {
-        //right();
+        right();
         console.log("Right Key Is Pressed");
     }
     if (key_pressed == '38') {
-        //up();
+        up();
         console.log("Up Key Is Pressed");
     }
     if (key_pressed == '40') {
-        //down();
+        down();
         console.log("Down Key Is Pressed");
+    }
+}
+
+function up() {
+    if (rovery >=0) {
+        rovery = rovery - 10;
+        uploadBg()
+        uploadRover()
+    }
+}
+
+function down() {
+    if (rovery <=500) {
+        rovery = rovery + 10;
+        uploadBg()
+        uploadRover()
+    }
+}
+
+function left() {
+    if (roverx >=0) {
+        roverx = roverx - 10;
+        uploadBg()
+        uploadRover()
+    }
+}
+
+function right() {
+    if (roverx <=700) {
+        roverx = roverx + 10;
+        uploadBg()
+        uploadRover()
     }
 }
